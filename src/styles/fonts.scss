@@ -1,0 +1,66 @@
+@font-face {
+  font-family: 'Cera';
+  src: url('/fonts/CeraGR.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cera Light';
+  src: url('/fonts/CeraGRLight.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cera Medium';
+  src: url('/fonts/CeraGRMedium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cera Bold';
+  src: url('/fonts/CeraGRBold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  @apply font-cera;
+  @apply text-text-light;
+}
+
+h1 {
+  font-size: 55px;
+  line-height: 70px;
+}
+
+h2 {
+  font-size: 36px;
+  line-height: 48px;
+}
+
+h3 {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+h4 {
+  font-size: 20px;
+  line-height: 28px;
+}
+
+h5 {
+  font-size: 18px;
+  line-height: 26px;
+}
+
+h6 {
+  font-size: 16px;
+  line-height: 22px;
+}

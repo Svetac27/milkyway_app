@@ -31,3 +31,43 @@ declare module './stores/api.store.js' {
     testConnection: () => Promise<unknown>;
   };
 }
+
+declare module './hooks/useAuthContext' {
+  export function useAuthContext(): {
+    isAuthenticated: boolean;
+    user: unknown;
+    loading: boolean;
+    login: (email: string, password: string) => Promise<unknown>;
+    logout: () => void;
+  };
+}
+
+declare module './hooks/useAuthContext.js' {
+  export function useAuthContext(): {
+    isAuthenticated: boolean;
+    user: unknown;
+    loading: boolean;
+    login: (email: string, password: string) => Promise<unknown>;
+    logout: () => void;
+  };
+}
+
+declare module '../hooks/useAuthContext' {
+  export function useAuthContext(): {
+    isAuthenticated: boolean;
+    user: unknown;
+    loading: boolean;
+    login: (email: string, password: string) => Promise<unknown>;
+    logout: () => void;
+  };
+}
+
+declare module '../hooks/useAuthContext.js' {
+  export function useAuthContext(): {
+    isAuthenticated: boolean;
+    user: unknown;
+    loading: boolean;
+    login: (email: string, password: string) => Promise<unknown>;
+    logout: () => void;
+  };
+}

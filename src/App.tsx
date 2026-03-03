@@ -1,48 +1,47 @@
-import { useEffect } from 'react'
-import './App.css'
-import bottleImg from './assets/images/bottle.png'
-import { useApiStore } from './stores/api.store.js'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import type { ReactNode } from 'react'
+import './App.scss'
+// @ts-expect-error - JS module without types
+import { useAuthContext } from './hooks/useAuthContext.js'
+import Login from './pages/login.tsx'
+import Index from './pages/index.tsx'
+
+interface ProtectedRouteProps {
+  children: ReactNode
+  isAuthenticated: boolean
+  isLoading: boolean
+}
+
+function ProtectedRoute({ children, isAuthenticated, isLoading }: ProtectedRouteProps) {
+  if (isLoading) {
+    return <div className="main flex-center">Loading...</div>
+  }
+
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />
+  }
+
+  return children
+}
 
 function App() {
-  const { get, loading, error } = useApiStore()
-
-  useEffect(() => {
-    const loadUsers = async () => {
-      try {
-        const usersResponse = await get('/users')
-        console.log('Users:', usersResponse)
-      } catch (requestError) {
-        console.error('Failed to load users:', requestError)
-      }
-    }
-
-    loadUsers()
-  }, [get])
+  const { isAuthenticated, loading } = useAuthContext()
 
   return (
-    <>
-      <div className="main">
-        <header>
-          <a href="/">
-            <img src={bottleImg} alt="logo" />
-          </a>
-            <span>mlecni put</span>
-          <div className="right-side">
-
-          </div>
-        </header>
-          <h1 className="text-3xl font-bold underline">
-            Dobro dosli!!!
-          </h1>
-          {loading && <p>Loading users...</p>}
-          {Boolean(error) && <p>Failed to load users.</p>}
-          <footer>
-            <span>
-              Copyright 2026
-            </span>
-          </footer>
-      </div>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/index"
+          element={
+            <ProtectedRoute isAuthenticated={isAuthenticated} isLoading={loading}>
+              <Index />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="/" element={<Navigate to={isAuthenticated ? '/index' : '/login'} replace />} />
+      </Routes>
+    </Router>
   )
 }
 

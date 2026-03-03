@@ -1,0 +1,23 @@
+@use './styles/fonts.scss';
+
+.main {
+  @apply h-screen w-screen flex items-center justify-center;
+  @apply bg-[url('/images/background.png')] bg-cover bg-center;
+  &:after {
+    @apply content-[''] absolute top-0 left-0 w-full h-full bg-backshade z-0;
+  }
+  header {
+    @apply fixed top-0 w-screen h-[60px] z-10 flex justify-between;
+    @apply shadow-custom pr-[30px];
+    span {
+      @apply h-full flex items-center;
+    }
+    img {
+      @apply h-full;
+    }
+  }
+  footer {
+    @apply fixed bottom-0 w-screen h-[60px] z-10 flex justify-end items-center;
+    @apply shadow-custom-reverse px-[30px];
+  }
+}
