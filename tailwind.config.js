@@ -4,9 +4,21 @@ export default {
   theme: {
     extend: {
       colors: {
-        'dark-background': '#1d252d',
         primary: '#3b82f6',
         secondary: '#10b981',
+
+        'darkest-grey': '#1D252D',
+        'dark-grey': '#888E97',
+        grey: '#B8BCC2',
+        'light-grey': '#D9D9D9',
+        'lightest-grey': '#F5F6F6',
+        white: '#FFFFFF',
+
+        red: '#E40046',
+        blue: '#588AFF',
+        green: '#5EA257',
+        yellow: '#DC7F38',
+
         'text-dark': '#1f2937',
         'text-light': '#f5f5f5',
         backshade: '#00000080'

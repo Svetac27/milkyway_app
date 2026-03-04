@@ -28,20 +28,22 @@ function App() {
   const { isAuthenticated, loading } = useAuthContext()
 
   return (
-    <Router>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route
-          path="/index"
-          element={
-            <ProtectedRoute isAuthenticated={isAuthenticated} isLoading={loading}>
-              <Index />
-            </ProtectedRoute>
-          }
-        />
-        <Route path="/" element={<Navigate to={isAuthenticated ? '/index' : '/login'} replace />} />
-      </Routes>
-    </Router>
+    <div className="main">
+      <Router>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route
+            path="/index"
+            element={
+              <ProtectedRoute isAuthenticated={isAuthenticated} isLoading={loading}>
+                <Index />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="/" element={<Navigate to={isAuthenticated ? '/index' : '/login'} replace />} />
+        </Routes>
+      </Router>
+    </div>
   )
 }
 

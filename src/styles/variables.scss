@@ -1,0 +1,27 @@
+.MuiInputBase-root {
+  @apply max-h-[50px];
+  .outlined-basic,
+  input {
+    @apply text-text-light !important;
+  }
+  fieldset.MuiOutlinedInput-notchedOutline {
+    @apply text-text-light border-text-light opacity-50 !important;
+    legend {
+      @apply text-text-light opacity-50;
+    }
+  }
+  &:hover {
+    fieldset.MuiOutlinedInput-notchedOutline {
+      @apply border-[1px] border-text-light opacity-100;
+    }
+  }
+
+}
+
+label.MuiFormLabel-root {
+  @apply text-text-light opacity-50;
+  &.Mui-focused {
+    @apply text-text-light;
+  }
+}
+

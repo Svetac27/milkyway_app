@@ -1,4 +1,6 @@
 @use './styles/fonts.scss';
+@use './styles/variables.scss';
+@use './styles/global.scss';
 
 .main {
   @apply h-screen w-screen flex items-center justify-center;
