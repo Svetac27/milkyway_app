@@ -5,6 +5,8 @@ import './App.scss'
 import { useAuthContext } from './hooks/useAuthContext.js'
 import Login from './pages/login.tsx'
 import Index from './pages/index.tsx'
+import CreateAccount from './pages/create-account.tsx'
+import ForgotPassword from './pages/forgot-password.tsx'
 
 interface ProtectedRouteProps {
   children: ReactNode
@@ -32,6 +34,8 @@ function App() {
       <Router>
         <Routes>
           <Route path="/login" element={<Login />} />
+          <Route path="/create-account" element={<CreateAccount />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route
             path="/index"
             element={

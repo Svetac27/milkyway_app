@@ -1,6 +1,39 @@
-.login {
+.login,
+.forgot-password {
   @apply ml-[auto];
-  .MuiFormControl-root {
-    @apply mb-[20px];
+}
+
+.login-form {
+  @apply bg-darkest-grey h-screen w-[600px] p-[60px] ml-auto flex flex-col justify-center relative right-0 z-10;
+  @apply mobile:w-screen mobile:h-[50vh];
+  .two-row {
+    @apply flex gap-[20px];
+    > div {
+      @apply w-full;
+    }
   }
+}
+
+.buttons {
+  @apply flex justify-between items-center;
+  @apply mobile:flex-col mobile:gap-[20px] mobile:items-end;
+}
+
+.error-msg {
+  @apply text-red absolute bottom-[5px];
+}
+
+.btn {
+  @apply font-cera-semibold font-[14px] leading-[20px];
+  &:hover {
+    @apply opacity-90 border-[transparent];
+  }
+}
+
+.main-btn {
+  @apply tracking-[0.64px] bg-primary text-text uppercase;
+}
+
+.text-btn {
+  @apply bg-transparent whitespace-nowrap p-0;
 }

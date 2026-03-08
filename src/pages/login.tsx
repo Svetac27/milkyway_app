@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 // @ts-expect-error - JS module without types
 import { useAuthContext } from '../hooks/useAuthContext.js'
 import '../App.scss'
-import { login, loginMail, loginPassword, welcomeMessage } from '../assets/variables.js'
+import { createAccount, forgotPassword, login, loginMail, loginPassword, welcomeMessage } from '../assets/variables.js'
 import MInput from '../components/m-input'
 
 function Login() {
@@ -29,28 +29,51 @@ function Login() {
   return (
     <div className="login">
       <form onSubmit={handleSubmit}
-        className="login-form bg-darkest-grey
-          max-w-[600px] h-screen w-full p-[60px] ml-auto
-          flex flex-col justify-center relative right-0 z-10"
+        className="login-form"
       >
         <h2 className="login-title mb-[30px]">{login}</h2>
         <h4 className="login-subtitle mb-[25px]">{welcomeMessage}</h4>
-          <MInput
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder={loginMail}
-            required
-          />
-          <MInput
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder={loginPassword}
-            required
-          />
-
-        {error && <p className="text-red">{error}</p>}
+        <div className="login-inputs relative flex flex-col gap-[20px] pb-[30px]">
+            <MInput
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder={loginMail}
+              required
+            />
+            <MInput
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder={loginPassword}
+              required
+            />
+          {error && <p className="error-msg">{error}</p>}
+        </div>
+        <div className="buttons">
+          <div className="account-buttons flex flex-col gap-[10px] items-start">
+            <button
+              type="button"
+              className="btn text-btn"
+              onClick={() => navigate('/create-account')}
+            >
+              {createAccount}
+            </button>
+            <button
+              type="button"
+              className="btn text-btn"
+              onClick={() => navigate('/forgot-password')}
+            >
+              {forgotPassword}
+            </button>
+          </div>
+          <button
+            type="submit"
+            className="btn main-btn w-[150px]"
+          >
+            {login}
+          </button>
+        </div>
       </form>
     </div>
   )

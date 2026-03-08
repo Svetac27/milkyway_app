@@ -1,5 +1,5 @@
 .MuiInputBase-root {
-  @apply max-h-[50px];
+  @apply rounded-[10px] !important;
   .outlined-basic,
   input {
     @apply text-text-light !important;

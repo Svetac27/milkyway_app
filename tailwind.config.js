@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#3b82f6',
+        primary: '#f5f5f5',
         secondary: '#10b981',
 
         'darkest-grey': '#1D252D',
@@ -19,7 +19,7 @@ export default {
         green: '#5EA257',
         yellow: '#DC7F38',
 
-        'text-dark': '#1f2937',
+        text: '#1D252D',
         'text-light': '#f5f5f5',
         backshade: '#00000080'
       },
@@ -32,6 +32,11 @@ export default {
         'cera-light': '"Cera Light", sans-serif',
         'cera-semibold': '"Cera Medium", sans-serif',
         'cera-bold': '"Cera Bold", sans-serif'
+      },
+      screens: {
+        mobile: { max: '767px' },
+        tablet: { min: '768px', max: '1023px' },
+        desktop: { min: '1024px' }
       }
     }
   },
